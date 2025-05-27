@@ -1,0 +1,19 @@
+### Créer un utilisateur
+POST http://localhost:8080/utilisateurs
+Content-Type: application/json
+
+{
+  "nom": "Dupont",
+  "email": "dupont@example.com",
+  "motDePasse": "Password123!",
+  "role": "ADMIN"
+}
+
+### Lister tous les utilisateurs
+GET http://localhost:8080/utilisateurs
+
+### Récupérer un utilisateur par id
+GET http://localhost:8080/utilisateurs/1
+
+### Supprimer un utilisateur
+DELETE http://localhost:8080/utilisateurs/2

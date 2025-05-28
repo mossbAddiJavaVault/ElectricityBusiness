@@ -1,17 +1,29 @@
 package com.humanbooster.demo.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-@Entity         
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor         
 @Table(name = "utilisateurs")
 public class Utilisateur {
 
@@ -32,6 +44,14 @@ public class Utilisateur {
     @NotBlank
     private String motDePasse;
 
+    @ManyToMany
+    @JoinTable(name = "utilisateur_borne",
+            joinColumns = @JoinColumn(name = "utilisateur_id"),
+            inverseJoinColumns = @JoinColumn(name = "borne_id")
+    )
+    private Set<Borne> bornes = new HashSet<>();
+
+    
 
 
     public void setId(int id) {

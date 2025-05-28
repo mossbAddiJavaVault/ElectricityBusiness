@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.humanbooster.demo.model.Utilisateur;
 import com.humanbooster.demo.service.UtilisateurService;
+
+
 @RestController
 public class UtilisateurController {
     private final UtilisateurService utilisateurService;
